@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Body */
+        body {
+            background-color: #fafafa;
+            color: #333;
+        }
+
+        /* Header with Background Image */
+        header {
+            width: 100%;
+            height: 60vh;
+            background-image: url('WhatsApp Image 2024-11-13 at 17,32,02_enhanced_enhanced.png'); /* Replace with your background image */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            text-align: center;
+            font-size: 1.5em;
+        }
+
+        /* Header Overlay */
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.1); /* Coffee overlay */
+            z-index: 1;
+        }
+
+        /* Header Content */
+        .header-content {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+        }
+
+        .header-content .profile-photo img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid #d7ccc8; /* Light coffee border */
+            margin-bottom: 15px;
+        }
+
+        .header-content h1 {
+            font-size: 1.7em;
+            margin-bottom: 5px;
+            color: #f5f5f5;
+        }
+
+        .header-content .roll-no {
+            font-size: 1em;
+            color: #e0e0e0;
+            margin-bottom: 20px;
+        }
+
+        /* Navigation Links */
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            font-size: 0.8em;
+        }
+
+        .nav-links a {
+            padding: 4px 7px;
+            background-color: #e0e0e0;
+            color: #555;
+            border-radius: 2px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s, color 0.3s;
+            text-decoration: none;
+            color: #5f4c4c;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #f7f6f6;
+        }
+
+        /* Main Content */
+        .content {
+            padding: 60px 20px;
+            max-width: 2000px;
+            margin: 0 auto;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 60px;
+        }
+
+        section h2 {
+            font-size: 2em;
+            color: #3e2723;
+            margin-bottom: 15px;
+        }
+
+        section p {
+            color: #322929;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about p {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Assignments Section */
+        .assignments h2 {
+            color: #333;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+        .assignments {
+            padding: 40px 20px;
+            background-color: #dbd3cb;
+            text-align: left;
+        }
+        .assignments .tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .assignments .tab {
+            padding: 10px 20px;
+            background-color: #c4c2c2cb; /* Light grey */
+            color: #333;
+            border: 1px solid #3e2723;
+            border-radius: 15px;
+            font-weight: 600;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .assignments .tab:hover {
+            background-color: #867463;
+            color: #fff;
+        }
+
+        /* Video Frame */
+        #video-frame {
+            width: 100%;
+            max-width: 600px;
+            height: 315px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+            display: block;
+        }
+
+        /* Contact Section */
+        
+        .contact .social-links {
+            display: flex;
+            justify-content: left;
+            gap: 30px;
+            margin-top: 20px;
+            margin-left: 40px;
+        }
+
+        .contact .social-links a {
+            font-size: 2.7em;
+            color: #3d3535;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+
+        .contact .social-links a:hover {
+            color: #909090;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            font-size: 0.8em;
+            color: #999;
+            margin-top: 40px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .header-content .profile-photo img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Background Image and Navigation -->
+    <header>
+        <div class="header-content">
+            <div class="profile-photo">
+                <img src="WhatsApp Image 2024-11-13 at 19.20.36.jpeg.jpg" alt="Profile Photo">
+            </div>
+            <h1>SAHIL LUTARE</h1>
+            <div class="roll-no">Roll No: IT-2K22-47</div>
+            <nav class="nav-links">
+                <a href="#about">About</a>
+                <a href="assignmentpg.html" target="_blank">Assignments</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="content">
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <h2>About Me</h2>
+            <p>
+                I'm a 3rd year student , currently pursuing MTech IT degree from IIPS (DAVV) , INDORE
+            
+            </p>
+        </section>
+
+        <!-- Assignments Section -->
+        <section id="assignments" class="assignments">
+            <h2>Assignments</h2>
+            <div class="tabs">
+                <div class="tab" onclick="loadVideo('https://www.youtube.com/embed/9BR8Q4P2wrM?si=Mur6gQrrQL-tdpnm')">Assignment 1</div>
+                <div class="tab" onclick="loadVideo('https://www.youtube.com/embed/6uf6BxhgGgk?si=PM_izGZ9PnPCk1vd')">Assignment 2</div>
+                <div class="tab" onclick="loadVideo('https://www.youtube.com/embed/VIDEO_ID3')">Assignment 3</div>
+                <div class="tab" onclick="loadVideo('https://www.youtube.com/embed/VIDEO_ID4')">Assignment 4</div>
+                <div class="tab" onclick="loadVideo('https://www.youtube.com/embed/VIDEO_ID5')">Assignment 5</div>
+                <div class="tab" onclick="loadVideo('https://www.youtube.com/embed/1UqhdJJZlMQ?si=EnWuNLiOmntiQQl7')">Assignment 6</div>
+                <div class="tab" onclick="loadVideo('https://www.youtube.com/embed/VIDEO_ID7')">Assignment 7</div>
+                <div class="tab" onclick="loadVideo('https://www.youtube.com/embed/VIDEO_ID8')">Assignment 8</div>
+                <div class="tab" onclick="loadVideo('https://www.youtube.com/embed/HBerdAVSX8U?si=orU74gtyrGQOlprJ')">Assignment 9</div>
+                <div class="tab" onclick="loadVideo('https://www.youtube.com/embed/VIDEO_ID10')">Assignment 10</div>
+                <div class="tab" onclick="loadVideo('https://www.youtube.com/embed/VIDEO_ID11')">Assignment 11</div>
+                <div class="tab" onclick="loadVideo('https://www.youtube.com/embed/VIDEO_ID12')">Assignment 12</div>
+            </div>
+            <iframe id="video-frame" src="https://www.youtube.com/embed/VIDEO_ID1" allowfullscreen></iframe>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <h2>Contact Me</h2>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/sahil-lutare-9ab64728a/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/sahillutaree" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <div class="footer">
+            &copy; 2024 Sahil Lutare. All rights reserved.
+        </div>
+    </div>
+
+    <script>
+        // JavaScript function to load YouTube videos dynamically
+        function loadVideo(url) {
+            document.getElementById('video-frame').src = url;
+        }
+    </script>
+</body>
+</html>
